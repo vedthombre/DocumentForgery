@@ -113,11 +113,5 @@ Want to add ML-based forgery classification? Or UI integration? PRs are welcome.
 
 This project is licensed under the [MIT License](LICENSE).
 
----
 
-Would you like me to also create a banner image or shields (e.g., `Built with ♥`, `Hackathon Project`, `MIT License`) for your GitHub README?
-
-
-## License
-This project is licensed under the MIT License.
 
