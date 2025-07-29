@@ -1,56 +1,80 @@
 # DocumentForgery
 # Aadhaar Forgery Detector
 
-## Overview
-The Aadhaar Forgery Detector is a Python-based application designed to analyze Aadhaar card images and PDFs for signs of forgery. It checks for various authenticity parameters, including text accuracy, document layout, security features, and image manipulations.
+A lightweight Python-based application that detects possible forgery in Aadhaar card images or PDFs. Built in under 24 hours during a hackathon, this project blends **image processing**, **OCR**, and **visual forensic analysis** into a minimal yet powerful tool.
 
-## Features
-- **Basic Checks**: Verifies dimensions, image quality, and standard layout.
-- **Content Analysis**: Extracts Aadhaar number and validates text positions.
-- **Security Features**: Checks for holograms, ghost images, and micro text.
-- **Visual Analysis**: Detects digital manipulations, color inconsistencies, and print patterns.
+---
 
-## Installation
-### Prerequisites
-Ensure you have the following dependencies installed:
-- Python 3.7+
-- OpenCV (`cv2`)
-- NumPy
-- Tesseract OCR
-- Pillow
-- pdf2image
-- Poppler (for PDF conversion)
+## 🔍 What Does It Do?
 
-### Install Dependencies
-Run the following command:
+The Aadhaar Forgery Detector runs a series of checks to identify inconsistencies or manipulations in Aadhaar documents. These include:
+
+* **Basic structural checks**: image dimensions, DPI, document layout.
+* **Text validation**: OCR-based extraction of Aadhaar numbers and layout-based verification.
+* **Security element detection**: ghost images, micro-text, hologram positioning.
+* **Forgery prediction**: analyzing color balance, noise artifacts, and signs of tampering.
+
+If any suspicious elements are detected, the tool reports a **likelihood of forgery** along with detailed insights.
+
+---
+
+## 📂 Dataset Used
+
+This project was developed using **open-source sample Aadhaar images and dummy PDFs** available for research purposes. No private or confidential data was used.
+
+If you're looking to test the system:
+
+* Use official-looking test PDFs/images (blurred or watermarked).
+* You can generate fake test documents using tools like Photoshop (for tampering) to simulate forged Aadhaar cards.
+
+---
+
+## ⚙️ Installation
+
+### 🔧 Prerequisites
+
+Make sure the following are installed:
+
+* Python 3.7+
+* Tesseract OCR (must be installed system-wide)
+* Poppler (for PDF to image conversion)
+
+### 📦 Install Python Dependencies
+
 ```bash
 pip install opencv-python numpy pytesseract pillow pdf2image
 ```
 
-### Install Poppler
-#### Windows:
-1. Download Poppler from [here](https://github.com/oschwartz10612/poppler-windows/releases).
-2. Extract the downloaded file and note the path to `poppler/bin`.
-3. Add the following to your script:
-   ```python
-   import os
-   poppler_path = r"C:\path\to\poppler\bin"  # Update with your actual path
-   os.environ["PATH"] += os.pathsep + poppler_path
-   ```
+### 📥 Install Poppler
 
-#### Linux (Ubuntu/Debian):
+#### Windows:
+
+1. Download Poppler: [Poppler for Windows](http://blog.alivate.com.au/poppler-windows/)
+2. Extract and set the path in your script:
+
+```python
+import os
+poppler_path = r"C:\path\to\poppler\bin"
+os.environ["PATH"] += os.pathsep + poppler_path
+```
+
+#### Linux:
+
 ```bash
 sudo apt update
 sudo apt install poppler-utils
 ```
 
-#### Mac (Homebrew):
+#### Mac:
+
 ```bash
 brew install poppler
 ```
 
-## Usage
-### Running the Detector
+---
+
+## 🚀 How to Run
+
 ```python
 from aadhar_forgery_detector import AadharForgeryDetector
 
@@ -59,7 +83,10 @@ result = detector.analyze_aadhaar("path_to_aadhaar_card.pdf")
 print(result)
 ```
 
-### Sample Output
+---
+
+## 🧪 Sample Output
+
 ```json
 {
   "is_forgery": false,
@@ -74,8 +101,22 @@ print(result)
 }
 ```
 
-## Contributing
-Feel free to fork this repository and submit pull requests with enhancements and bug fixes.
+---
+
+## 🤝 Contributing
+
+Want to add ML-based forgery classification? Or UI integration? PRs are welcome. Fork this repo, experiment, and raise a pull request with improvements.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+Would you like me to also create a banner image or shields (e.g., `Built with ♥`, `Hackathon Project`, `MIT License`) for your GitHub README?
+
 
 ## License
 This project is licensed under the MIT License.
